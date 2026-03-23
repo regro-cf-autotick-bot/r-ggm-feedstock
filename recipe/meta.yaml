@@ -12,31 +12,51 @@ source:
   sha256: b1a153c9f6c036f364a0561dd4e22039d40ed75eb5e8e91bf0cd0b39c5348c87
 
 build:
-  noarch: generic
   number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
+  build:
+    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
+    - r-biocmanager
+    - r-graph
     - r-igraph
   run:
     - r-base
+    - r-biocmanager
+    - r-graph
     - r-igraph
 
 test:
   commands:
-    - $R -e "library('ggm')"  # [not win]
+    - $R -e "library('ggm')"           # [not win]
     - "\"%R%\" -e \"library('ggm')\""  # [win]
 
 about:
   home: https://CRAN.R-project.org/package=ggm
-  license: GPL-2.0-or-later
-  summary: Functions and datasets for maximum likelihood fitting of some classes of graphical Markov models.
-  license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license: GPL-2.0-only
+  summary: Provides functions for defining mixed graphs containing three types of edges, directed,
+    undirected and bi-directed, with possibly multiple edges. These graphs are useful
+    because they capture fundamental independence structures in multivariate distributions
+    and in the induced distributions after marginalization and conditioning. The package
+    is especially concerned with Gaussian graphical models for (i) ML estimation for
+    directed acyclic graphs, undirected and bi-directed graphs and ancestral graph models
+    (ii) testing several conditional independencies (iii) checking global identification
+    of DAG Gaussian models with one latent variable (iv) testing Markov equivalences
+    and generating Markov equivalent graphs of specific types.
+  license_family: GPL2
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
