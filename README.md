@@ -5,9 +5,9 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ggm-feedstock
 
 Home: https://CRAN.R-project.org/package=ggm
 
-Package license: GPL-2.0-or-later
+Package license: GPL-2.0-only
 
-Summary: Functions and datasets for maximum likelihood fitting of some classes of graphical Markov models.
+Summary: Provides functions for defining mixed graphs containing three types of edges, directed, undirected and bi-directed, with possibly multiple edges. These graphs are useful because they capture fundamental independence structures in multivariate distributions and in the induced distributions after marginalization and conditioning. The package is especially concerned with Gaussian graphical models for (i) ML estimation for directed acyclic graphs, undirected and bi-directed graphs and ancestral graph models (ii) testing several conditional independencies (iii) checking global identification of DAG Gaussian models with one latent variable (iv) testing Markov equivalences and generating Markov equivalent graphs of specific types.
 
 Current build status
 ====================
