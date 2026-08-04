@@ -1,4 +1,4 @@
-{% set version = '2.3' %}
+{% set version = "2.5.4" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,11 +9,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ggm_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ggm/ggm_{{ version }}.tar.gz
-  sha256: 832ffe81ff87c6f1a6644e689ebbfb172924b4c4584ac8108d1244d153219ed8
+  sha256: 316582142bdf519094af1b9c1acdec1955c78c8279fbdaf316bbf58d8feed68f
 
 build:
   noarch: generic
-  number: 1006
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -34,11 +34,10 @@ test:
 about:
   home: https://CRAN.R-project.org/package=ggm
   license: GPL-2.0-or-later
-  summary: Functions and datasets for maximum likelihood fitting of some classes of graphical
-    Markov models.
+  summary: Functions and datasets for maximum likelihood fitting of some classes of graphical Markov models.
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
-   recipe-maintainers:
+  recipe-maintainers:
     - conda-forge/r
